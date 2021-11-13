@@ -26,19 +26,13 @@ function formatDate(date) {
 
 const d = new Date(rowArr[0].values[3]);
 
-console.log(formatDate(d).toString());
-
 colArr.forEach((column) => {
   const name = column.name;
   const dataType = column.dataType;
-  // const rowValue = rowArr.values[0];
-  // console.log(dataType);
 
   const nameEl = document.createElement('div');
   nameEl.classList.add('col');
   nameEl.textContent = name;
-
-  // console.log(nameEl);
 
   const wrapEl = document.createElement('div');
   wrapEl.classList.add('container');
@@ -46,16 +40,8 @@ colArr.forEach((column) => {
   wrapEl.appendChild(nameEl);
   wrap.appendChild(wrapEl);
 
-  const dataEl = document.createElement('div');
-  dataEl.classList.add('row');
-  dataEl.textContent = dataType;
-  // console.log(dataEl);
-  wrapEl.appendChild(dataEl);
-  wrap.appendChild(wrapEl);
-
   for (let i = 0; i < rowArr.length; i++) {
     const element = rowArr[i];
-    // console.log(wrapEl);
 
     if (nameEl.textContent === 'Острів') {
       const island = document.createElement('div');
@@ -77,34 +63,11 @@ colArr.forEach((column) => {
       comment.classList.add('value');
       comment.textContent = rowArr[0].values[4];
       wrapEl.append(comment);
-    }
-
-    const data = document.createElement('div');
-    // data.classList.add('value');
-
-    if (dataType === 'Дата') {
-      data.textContent = rowArr[0].values[3];
-      wrapEl.append(data);
-      return;
     } else if (dataType === 'DateTime') {
-      data.textContent = formatDate(d);
-      wrapEl.replaceWith(data);
+      const dataValue = document.createElement('div');
+      dataValue.classList.add('value');
+      dataValue.textContent = formatDate(d);
+      wrapEl.append(dataValue);
     }
-
-    // if (nameEl.textContent === 'Дата') {
-    // if (dataType.dataType === 'DateTime') {
-    //   const data = document.createElement('div');
-    //   data.classList.add('value');
-    //   data.textContent = convertDate('2020-12-12T00:00:00');
-    // } else if (dataType === 'Дата') {
-    //   const data = document.createElement('div');
-    //   data.classList.add('value');
-    //   data.textContent = rowArr[0].values[3];
-    //   wrapEl.append(data);
-    // }
-    // }
   }
 });
-
-// const date = colArr.find((data) => data.dataType === 'DateTime');
-// console.log(date.dataType);
