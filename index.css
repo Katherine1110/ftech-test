@@ -11,16 +11,8 @@
   background-color: rgb(169, 226, 226);
   color: rgb(6, 19, 19);
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 7px;
 }
-
-/* .container:nth-child(1),
-.container:nth-child(2),
-.container:nth-child(4),
-.container:nth-child(5) {
-  background-repeat: no-repeat;
-  background-size: 30%;
-} */
 
 .container:nth-child(1) {
   background-image: url(./src/img/tux.svg);
@@ -40,6 +32,8 @@
 
 .col {
   margin-bottom: 10px;
+  font-weight: 900;
+  font-size: 18px;
 }
 
 @media screen and (max-width: 767px) {
@@ -75,6 +69,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  body {
+    position: relative;
+  }
   .wrapper {
     margin-top: 30px;
     display: flex;
